@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+</style>
+
+<h1>Student Record</h1>
+<hr>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name </th>
+        <th scope="col">Email </th>
+        <th scope="col">Address</th>
+        <th scope="col">State</th>
+        <th scope="col">City</th>
+        <th scope="col">Zipcode</th>
+        <th scope="col">Checking Status</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let stu of Students;let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{stu.firstname}}</td>
+        <td>{{stu.email}}</td>
+        <td>{{stu.address}}</td>
+        <td>{{stu.statename}}</td>
+        <td>{{stu.cityname}}</td>
+        <td>{{stu.zipcode}}</td>
+        <td ng-if="stu.checkout==false">Checked</td>
+      
+        <td> <button class="m-1"  (click)="DeleteStudent(stu.id);"><i class="fa fa-trash "  aria-hidden="true"></i>
+        </button> 
+            <button   (click)="EditStudent(stu.id);" ><i class="fa fa-edit"  aria-hidden="true"></i></button></td>
+     
+      </tr>
+    </tbody>
+  </table>
+  
